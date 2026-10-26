@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- White Shield & Cross symbol -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,24 L34,32 L34,54 C34,68 43,80 54,84 C65,80 74,68 74,54 L74,32 Z" />
+    <path
+        android:fillColor="#B71C1C"
+        android:pathData="M51,40 L57,40 L57,49 L66,49 L66,55 L57,55 L57,64 L51,64 L51,55 L42,55 L42,49 L51,49 Z" />
+</vector>

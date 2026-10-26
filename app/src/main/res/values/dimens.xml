@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="panic_button_size">200dp</dimen>
+    <dimen name="panic_button_corner_radius">100dp</dimen>
+    <dimen name="panic_button_elevation">12dp</dimen>
+    <dimen name="panic_pulse_size">240dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    <dimen name="contact_item_min_height">64dp</dimen>
+    <dimen name="recording_indicator_size">12dp</dimen>
+</resources>

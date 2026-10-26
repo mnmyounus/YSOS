@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YSOS</string>
+    <string name="app_tagline">Your Safety, Our System</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_directory">Directory</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home Fragment -->
+    <string name="btn_panic_activate">EMERGENCY</string>
+    <string name="btn_panic_stop">STOP RECORDING</string>
+    <string name="panic_recording_active">● Recording in progress…</string>
+    <string name="panic_hint">Tap to activate emergency recording</string>
+    <string name="recording_saved">Evidence saved and encrypted.</string>
+    <string name="recording_stopped">Recording stopped.</string>
+    <string name="screen_record_permission_title">Allow Screen Recording</string>
+    <string name="screen_record_permission_msg">YSOS needs your permission to capture the screen as part of emergency evidence.</string>
+
+    <!-- Directory -->
+    <string name="directory_title">Emergency Directory</string>
+    <string name="select_country">Select Country</string>
+    <string name="search_country">Search country…</string>
+    <string name="category_police">Police</string>
+    <string name="category_ambulance">Ambulance</string>
+    <string name="category_fire">Fire &amp; Rescue</string>
+    <string name="category_disaster">Disaster Relief</string>
+    <string name="no_contacts">No contacts available for this country.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="pref_country">Country</string>
+    <string name="pref_theme">App Theme</string>
+    <string name="pref_theme_system">Follow system</string>
+    <string name="pref_theme_light">Light</string>
+    <string name="pref_theme_dark">Dark</string>
+    <string name="pref_biometric">Require biometric to access recordings</string>
+    <string name="pref_about">About YSOS</string>
+    <string name="about_text">YSOS is a 100%% offline, privacy-focused emergency response application. No data ever leaves your device. All evidence is AES-256 encrypted and stored in app-private storage.</string>
+    <string name="developer_name">Developed by MNM YOUNUS</string>
+    <string name="version_label">Version %1$s</string>
+
+    <!-- Permissions -->
+    <string name="perm_camera_rationale">Camera permission is required for panic evidence recording.</string>
+    <string name="perm_audio_rationale">Microphone permission is required for ambient audio capture during emergencies.</string>
+    <string name="perm_call_rationale">Phone call permission is required to dial emergency numbers directly.</string>
+    <string name="perm_notification_rationale">Notification permission is needed to show the active recording status.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Notification -->
+    <string name="notif_channel_panic">Panic Recording</string>
+    <string name="notif_channel_panic_desc">Active emergency evidence recording session</string>
+    <string name="notif_panic_title">YSOS — Recording Active</string>
+    <string name="notif_panic_text">Emergency evidence is being captured and encrypted.</string>
+    <string name="notif_stop_action">Stop</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_title">Authenticate to Access Recordings</string>
+    <string name="biometric_prompt_subtitle">Use biometric or device PIN to unlock evidence files.</string>
+    <string name="biometric_not_available">Biometric authentication is not available on this device.</string>
+
+    <!-- Evidence Vault -->
+    <string name="vault_title">Encrypted Evidence Vault</string>
+    <string name="vault_subtitle">Manage AES-256 local evidence recordings</string>
+    <string name="btn_open_vault">Access Evidence Vault</string>
+    <string name="vault_empty">No evidence recordings found. Emergency captures will appear here.</string>
+    <string name="vault_decrypt_play">Decrypt &amp; View</string>
+    <string name="vault_delete">Delete</string>
+    <string name="vault_delete_confirm">Are you sure you want to permanently delete this evidence file?</string>
+    <string name="vault_encrypted_badge">AES-256-GCM ENCRYPTED</string>
+
+    <!-- Errors -->
+    <string name="error_no_call_app">No phone app found to make calls.</string>
+    <string name="error_no_email_app">No email app found.</string>
+    <string name="error_camera_unavailable">Camera unavailable on this device.</string>
+
+    <!-- First Launch -->
+    <string name="welcome_title">Welcome to YSOS</string>
+    <string name="welcome_subtitle">100%% offline · Zero tracking · Your data, your device.</string>
+    <string name="welcome_select_country">Please select your country to load local emergency contacts.</string>
+    <string name="welcome_get_started">Get Started</string>
+</resources>
