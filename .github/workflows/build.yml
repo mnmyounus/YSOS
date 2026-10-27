@@ -26,21 +26,29 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'gradle'
 
+      # FIX 1: the default packages ("tools platform-tools") makes sdkmanager
+      # fail with "Failed to find package 'tools'". Install nothing here;
+      # the next step installs what the app needs.
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: ''
 
       - name: Install Android SDK packages
         run: |
           sdkmanager --install "platforms;android-35" "build-tools;35.0.0" "platform-tools"
-          yes | sdkmanager --licenses || true
 
-      - name: Make Gradle Wrapper Executable
-        run: chmod +x gradlew
+      # FIX 2: gradle/wrapper/gradle-wrapper.jar is missing from the repo, so
+      # ./gradlew cannot run. Install Gradle directly (same version as
+      # gradle-wrapper.properties) and call `gradle` instead of `./gradlew`.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload Debug APK Artifact
         uses: actions/upload-artifact@v4
@@ -49,6 +57,7 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 14
 
+      # FIX 3: `files:` was missing, so the release was created with no APK attached.
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -57,3 +66,4 @@ jobs:
           draft: false
           prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}
           generate_release_notes: true
+          files: app/build/outputs/apk/debug/*.apk
