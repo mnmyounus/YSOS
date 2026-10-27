@@ -83,7 +83,7 @@ class AudioRecordingService : Service() {
         } catch (_: Exception) {}
         recorder = null
 
-        rawFile?.let { if (it.exists()) EncryptionManager.encryptAndDelete(it) }
+        rawFile?.let { if (it.exists()) EncryptionManager.encryptAndDeleteAsync(it) }
         rawFile = null
         stopSelf()
     }
