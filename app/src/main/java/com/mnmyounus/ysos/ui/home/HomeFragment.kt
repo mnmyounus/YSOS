@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ import com.mnmyounus.ysos.R
 import com.mnmyounus.ysos.YSOSApplication
 import com.mnmyounus.ysos.databinding.FragmentHomeBinding
 import com.mnmyounus.ysos.service.PanicForegroundService
+import com.mnmyounus.ysos.service.ScreenRecordingService
 import com.mnmyounus.ysos.util.PermissionHelper
 
 class HomeFragment : Fragment() {
@@ -31,7 +33,7 @@ class HomeFragment : Fragment() {
     private lateinit var prefs: com.mnmyounus.ysos.util.PreferencesManager
 
     // Permission request for camera/mic/notifications
-    private val permissionLauncher = registerForActivityResult(
+    private val permissionLauncher: ActivityResultLauncher<Array<String>> = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { results ->
         val allGranted = results.values.all { it }
@@ -54,7 +56,7 @@ class HomeFragment : Fragment() {
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val screenIntent = result.data?.apply {
-                putExtra(PanicForegroundService.EXTRA_SCREEN_CAPTURE_INTENT, this)
+                putExtra(ScreenRecordingService.EXTRA_RESULT_CODE, result.resultCode)
             }
             activatePanic(screenIntent)
         } else {
