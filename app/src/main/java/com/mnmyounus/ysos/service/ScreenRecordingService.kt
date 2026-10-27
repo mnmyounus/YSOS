@@ -39,7 +39,7 @@ class ScreenRecordingService : Service() {
             context.startService(
                 Intent(context, ScreenRecordingService::class.java).apply {
                     action = ACTION_START
-                    putExtra(EXTRA_RESULT_CODE, captureIntent.getIntExtra(EXTRA_RESULT_CODE, -1))
+                    putExtra(EXTRA_RESULT_CODE, captureIntent.getIntExtra(EXTRA_RESULT_CODE, Int.MIN_VALUE))
                     putExtra(EXTRA_DATA, captureIntent)
                 }
             )
@@ -55,14 +55,14 @@ class ScreenRecordingService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
             ACTION_START -> {
-                val code = intent.getIntExtra(EXTRA_RESULT_CODE, -1)
+                val code = intent.getIntExtra(EXTRA_RESULT_CODE, Int.MIN_VALUE)
                 @Suppress("DEPRECATION")
                 val data: Intent? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     intent.getParcelableExtra(EXTRA_DATA, Intent::class.java)
                 } else {
                     intent.getParcelableExtra(EXTRA_DATA)
                 }
-                if (code != -1 && data != null) startCapture(code, data)
+                if (code != Int.MIN_VALUE && data != null) startCapture(code, data)
             }
             ACTION_STOP -> stopCapture()
         }
